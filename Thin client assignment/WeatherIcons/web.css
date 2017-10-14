@@ -1,0 +1,36 @@
+
+ .hideDefault { display: none; }
+ 
+ 
+ 
+ 
+ 
+/********************For Bootstrap*********************/
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+   
+  
+ 
+      
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+        }
+     
+        #textboxes1
+        {
+            text-align: center;
+
+        }
+        #textboxes2
+        {
+            text-align: center;
+
+        }
+        #fix
+        {
+            text-align: left;
+        }
+      

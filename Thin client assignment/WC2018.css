@@ -1,0 +1,120 @@
+ /*****************************************************************
+        CSS FOR SIDE BARS AND CENTER COLSPAN
+******************************************************************/
+     
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+        }
+     
+        #textboxes1
+        {
+            text-align: center;
+
+        }
+        #textboxes2
+        {
+            text-align: center;
+
+        }
+        #fix
+        {
+            text-align: left;
+        }
+      
+      
+        
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+      
+        
+        .row.content {
+            height: auto;
+        }
+       
+        
+        .sidenav {
+            
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+      
+        
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {
+                height: auto;
+            }
+
+
+           
+ 
+
+      
+      TeamTable, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+        }
+     
+        
+        #MatchResults
+        {
+            text-align: center;
+
+        }
+        #fix
+        {
+            text-align: left;
+        }
+
+     .radioLeft
+{
+    text-align:left;
+}
+        }
+
+
+
+
+
+
+.container{
+    display: flex;
+}
+.fixed{
+    width: 45%;
+    text-align: left;
+}
+
+.flex-item{
+    width: 40%;
+   
+float: left;
+    text-align: left;
+}
+
+
+.radioButtonsLocation {
+    display:inline-block;
+}
+
+       
+      

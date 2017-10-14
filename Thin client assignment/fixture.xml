@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="fixture.xsl"?>
+<fixture>
+
+
+<match>	
+	<Date> 14th June </Date>
+	<team_Home>Ireland</team_Home>
+	<team_Away>Russia</team_Away>
+	<Stadium> Luzhniki Stadium </Stadium>
+</match>													
+<match>	
+	<Date> 15th June</Date>	
+	<team_Home>Italy</team_Home>				
+	<team_Away>Brazil</team_Away>			
+	<Stadium> Saint Petersburg Stadium</Stadium>
+</match>
+
+
+<match>
+	<Date> 19th June</Date>
+	<team_Home>Ireland</team_Home>
+	<team_Away>Brazil</team_Away>
+	<Stadium>  Fisht Stadium </Stadium>
+</match>
+<match>
+	<Date>20th June</Date>
+	<team_Home>Russia</team_Home>
+	<team_Away>Italy</team_Away>
+	<Stadium> Ekaterinburg Arena </Stadium>
+</match>
+
+
+
+<match>
+	<Date> 23rd June</Date>
+	<team_Home>Ireland</team_Home>
+	<team_Away>Italy</team_Away>
+	<Stadium> Kazan Arena </Stadium>
+</match>
+<match>
+	<Date> 23rd June</Date>
+	<team_Home>Brazil</team_Home>
+	<team_Away>Russia</team_Away>
+	<Stadium> Rostov Arena  </Stadium>
+</match>
+</fixture>

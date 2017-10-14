@@ -1,0 +1,354 @@
+<!--
+REFERENCES
+rss news feed was supplied by lecturer Gerard McCloskey in basic format and edited and converyted to students requirements
+weather feeds and api key was provided by acu weather
+currency converter, create fixtures and tables was created using info from various stackoverflow sites and adapted by the student
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Russia 2018</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="WC2018.css">
+    <link type="text/css" rel="stylesheet" href="NewsFeed.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.9.1.js"></script>-->
+    <script type="text/javascript" src="jquery-1.11.2.js"></script>
+    <script src="Weather.js"></script>
+    <script src="NewsFeed.js"></script>
+ <script src="fixtures.js"></script>
+      <!-- <script src="t.js"></script>-->
+<script language="JavaScript">
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//      CURRENCY CONVERTER FUNCTION
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function euroConverter(){
+document.converter.pound.value = document.converter.euro.value * 0.85
+document.converter.ruble.value = document.converter.euro.value * 62.02
+}
+function poundConverter(){
+document.converter.euro.value = document.converter.pound.value * 1.18
+document.converter.ruble.value = document.converter.pound.value * 72.23
+}
+function rubleConverter(){
+document.converter.pound.value = document.converter.ruble.value * 0.01
+document.converter.euro.value = document.converter.ruble.value * 0.016
+}
+
+</script>
+
+
+</head>
+
+<body>
+
+
+    <!-- PAGE HEADER AND IMAGE  -->
+    <div class="col-sm-12 text-center">
+
+        <img src="images\russia.png" align="middle" height="180px" width="70%">
+
+    </div>
+
+
+
+
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+
+
+
+
+
+
+
+            <!-- LEFT SIDE BAR  -->
+            <div class="col-sm-2 sidenav">
+
+<span class="RSSTitle"><label style="font-size: 28px; color: #6666FF; font-Family:Copperplate Gothic Light; ">Weather</label></span>
+<div class="RSSMiddle"></div>
+                <!-- CHOOSE FROM 3 LOCATIONS USING RADIO BUTTONS  -->
+                <div id="radioButtonsLocation">
+                    
+                    <input type="radio" name="Location" value="Dublin" checked/><label style="font-size: 16px; color: limegreen; font-Family:Copperplate Gothic Light;">Dublin</label><br>
+                    <input type="radio" name="Location" value="Rio de janeiro" /><label style="font-size: 16px; color: gold; font-Family:Copperplate Gothic Light;">Rio de Janeiro</label><br>
+                    <input type="radio" name="Location" value="Rome" /><label style="font-size: 16px; color: #6666FF; font-Family:Copperplate Gothic Light;">Rome</label>
+                </div>
+
+                <!-- LOCATION NAME  -->
+                <h4>Location</h4>
+                <SPAN STYLE="color: red; font-size: 22pt" id="awxLocationInfo">(Location information will be displayed here)</span>
+
+
+                <!-- TODAYS WEATHER  -->
+                <br>
+                <div id="WeatherDay1">
+                    <SPAN STYLE="color: red; font-size: 18pt" id="Day1"></span><br>
+                    <SPAN STYLE="color: black; font-size: 14pt" id="DateDay1"></span><br>
+                    <SPAN STYLE="color: black; font-size: 14pt" id="InfoDay1"></span><br>
+                    <img id="IconDay1" width="100px" height="100px"></img>
+                </div>
+
+                <!-- DAY 2 WEATHER  -->
+                <br>
+                <div id="WeatherDay2">
+                    <SPAN STYLE="color: #6666FF; font-size: 16pt" id="Day2"></span><br>
+                    <span id="DateDay2"></span><br>
+                    <span id="InfoDay2"></span><br>
+                    <img id="IconDay2" width="50px" height="50px"></img>
+                </div>
+
+                <!-- DAY 3 WEATHER  -->
+                <br>
+                <div id="WeatherDay3">
+                    <SPAN STYLE="color: limegreen; font-size: 16pt" id="Day3"></span><br>
+                    <span id="DateDay3"></span><br>
+                    <span id="InfoDay3"></span><br>
+                    <img id="IconDay3" width="50px" height="50px"></img>
+                </div>
+
+                </ul>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- CENTER COLUMN  -->
+            <div class="col-sm-7 text-left" STYLE=" font-size: 11pt; ">
+<div class="container" >
+<div class="fixed"  >
+
+
+       <script>
+	  
+	  if (window.XMLHttpRequest) 
+	{	// code for IE7+, Firefox, Chrome, Opera, Safari
+	xmlhttp = new XMLHttpRequest();
+
+	} 
+		else 
+		{	// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}		
+		xmlhttp.open("GET", "fixture.xml", false);
+		xmlhttp.send();
+		xmlDoc = xmlhttp.responseXML;
+
+
+		// CREATE THE HEADINGS FOR FIXTURES
+		document.write("<table id = t  class='table' STYLE= 'border:none;'>");       
+        document.write("<span class='RSSTitle'><label style='font-size: 28px; color: gold;font-Family:Copperplate Gothic Light; '>Group A Fixtures</label></span>");
+         document.write("<div class='RSSMiddle'></div>");
+
+
+		var x = xmlDoc.getElementsByTagName("match");
+		document.write("<thead class='thead-inverse'>");
+
+		document.write("<tr STYLE= 'border:none;'>");
+		document.write("<th STYLE= 'border:none;'>Date</th>");
+		document.write("<th STYLE= 'border:none;'>Home Team</th>");
+		document.write("<th STYLE= 'border:none;'></th>");
+		document.write("<th STYLE= 'border:none;'>Away Team</th>");
+		document.write("<th STYLE= 'border:none;'>Stadium</th>");
+		document.write("</tr>");
+		document.write("</thead>");		
+		document.write("<tbody>");
+       
+		
+
+        // LOOP THROUGH XML AND INSERT FIXTURE DATA
+		for( i = 0; i < x.length; i++){	
+		document.write("<tr STYLE= 'border:none;'><td STYLE= 'border:none;'>");
+		document.write(x[i].getElementsByTagName("Date")[0].childNodes[0].nodeValue);
+		document.write("</td><td STYLE= 'border:none; text-align:center;'>");
+		document.write(x[i].getElementsByTagName("team_Home")[0].childNodes[0].nodeValue);
+		document.write("</td><td STYLE= 'border:none;'>");
+		document.write("v");
+		document.write("</td><td STYLE= 'border:none; text-align:center;'>");
+		document.write(x[i].getElementsByTagName("team_Away")[0].childNodes[0].nodeValue);
+		document.write("</td> <td STYLE= 'border:none;'>");
+		document.write(x[i].getElementsByTagName("Stadium")[0].childNodes[0].nodeValue);
+		document.write("</td></tr>");			
+		}
+
+
+        // WRITE DATA INTO TABLE
+		document.write("</tbody>");
+		document.write("</table>");
+			
+			
+			
+		
+	 // FUNCTION TO REVERSE FIXYURES
+	 function descending() 
+	 {
+		var table = document.getElementById('t'),
+		rows = table.rows;
+
+		for (var i = 1; i < rows.length; i++) 
+		{
+			rows[i].parentNode.insertBefore(rows[rows.length-1], rows[i]);
+		}
+	
+	}
+
+
+
+   
+</script>
+</div>   
+
+<div class="flex-item">
+ <div id = "MatchResults">
+
+<!--DIV TO HOLD RESULTS -->
+<div id = "results" style="margin-left: 0px; border-left:1px solid #6666FF; height:100%" align = left>
+    <div>
+        <span class='RSSTitle'><label style='font-size: 28px; color: gold; font-Family:Copperplate Gothic Light; '>Group A Results</label></span>
+<div class='RSSMiddle'></div>
+        </div>
+
+</div>
+ </div> 
+
+</div>
+
+ <!--END OF CONTAINER DIV -->
+</div>	  
+
+<div class="btn-group btn-group-justified" style="text-align:center">
+    <a href="#" onclick="descending()" background-colour="green"  class="btn btn-primary">Reverse Fixtures</a>
+    <a href="#"  id ="show_results" class="btn btn-primary">Show Results</a>
+    <a href="#" id ="Show_Table"  class="btn btn-primary">Show Table</a>
+  </div>
+ 
+<!--DIV TO HOLD TABLE HEADING -->
+    <div id = "MatchResults1" style="width:100%" align = center>
+
+    <br>
+            <span class='RSSTitle'><label style='font-size: 28px; color: gold; font-Family:Copperplate Gothic Light;'>Group A Table</label></span>
+<div class='RSSMiddle'></div>
+    
+</div>
+
+<!--DIV TO HOLD TABLE INFORMATION -->
+<div id = "MatchResults2">
+<table   class="TeamTable"  id="scores_table" style="width:75%; background-color:#f1f1f1;" align = center>
+    <tr>
+        <th>Team</th>
+        <th>W</th>
+        <th>D</th>
+        <th>L</th>
+        <th>Pts</th>
+
+    </tr>
+</table>
+</div>
+ <br> <br> 
+
+ <!--  BUTTON TO START NEW GROUP SCENARIO -->
+ <div class="btn-group btn-group-justified">
+    <a href="#" value="Refresh Page" onClick="window.location.reload()" class="btn btn-primary">Create a New Group Scenario</a>
+   
+  </div>
+ <br> <br>
+
+
+</div>
+    
+    
+
+
+   
+
+            <!-- RIGHT SIDE BAR  -->
+            <div class="col-sm-3 sidenav" style="text-align: left">
+                <div class="divAll" style="text-align: left">
+                    <div class="up_top"></div>
+                    <div class="up">
+                        <span class="RSSTitle"><label style="font-size: 28px; color: #6666FF; font-Family:Copperplate Gothic Light;">News</label></span>
+                        <div class="RSSMiddle"></div>
+                        <div class="form">
+                            <form name="myForm">
+                                <div id="radioButtonsLocation">
+                                <input type="radio" value="bbc" name="rss" onclick="ajaxFunctionPage('Breaking News');" /><label style="font-size: 16px; color: limegreen;font-Family:Copperplate Gothic Light;">Breaking News</label><br> 
+                                <input type="radio" value="rte" name="rss" onclick="ajaxFunctionPage('RTE News');" /> <label style="font-size: 16px; color: gold; font-Family:Copperplate Gothic Light;">RTE News</label><br>
+                                <input type="radio" value="lemonde" name="rss" onclick="ajaxFunctionPage('Independent News');" /><label style="font-size: 16px; color: #6666FF; font-Family:Copperplate Gothic Light;">Independent News</label> 
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div id="rss_feed"></div>
+
+                    
+<br/>
+<br/>
+<br/>
+<div class="divAll" style="text-align: left">
+                    <div class="up_top"></div>
+                    <div class="up">
+ <span class='RSSTitle'><label style='font-size: 28px; color: #6666FF; font-Family:Copperplate Gothic Light; text-align:left; '>Currency</label></span>
+<div class='RSSMiddle'></div>
+<form style="border:none; width:50px" name="converter">
+<table style="border:none; width:50px">
+<tr style="border:none">
+<td style="border:none">Euro: </td><td style="border:none"><input type="text" width="80%" name="euro" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="euroConverter()" /></td>
+</tr>
+
+<tr style="border:none">
+<td style="border:none">British Pound:</td><td style="border:none"><input type="text" name="pound" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="poundConverter()" /></td>
+</tr>
+<tr style="border:none">
+<td style="border:none">Russian Ruble: </td><td style="border:none"><input type="text" name="ruble" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onChange="rubleConverter()" /></td>
+</tr>
+<tr style="border:none">
+<td colspan="1" style="border:none" align="center"><input style="border:none" type="button" value="Convert!" /></td>
+</tr>
+</table>
+</form>
+                </div>
+
+
+
+</div>
+                </div></div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <p>Michael McFadden L00105787</p>
+    </footer>
+
+</body>
+
+</html>

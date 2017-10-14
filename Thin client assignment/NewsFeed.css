@@ -1,0 +1,169 @@
+ /*****************************************************************
+        CSS FOR RIGHT SIDE BAR AND NEWS FEED
+******************************************************************/
+
+.divAll{
+    height: auto;
+  
+}
+
+
+.up_top{
+	
+	background-repeat:no-repeat;
+	height:9px;
+}
+
+.up{
+	padding-left:30px;
+	background-image:url(images/rss_middle.png);
+	background-repeat:repeat-y;
+	height:auto;
+}
+
+.up_bottom{
+	background-image:url(images/rss_bottom.png);
+	background-repeat:no-repeat;
+	height:9px;
+}
+
+/* RSS up title */
+.RSSTitle{
+	font-size:28px;
+	color:#6666FF;
+	text-decoration:underline;	
+}
+
+/* RSS up middle */
+.RSSMiddle{
+	width:auto;
+	border-top:solid 1px;
+	height:3px;
+	color:#6666FF;
+}
+
+/* RSS up form */
+.form{
+	padding-left:auto;
+	font-size:18px;
+	height:auto;
+}
+
+/* RRS up box */
+.number{
+	padding-left:auto;
+}
+
+/***********************************************/
+
+/* Style RSS div down*/
+
+/* RSS down title */
+.downTitle_top{
+	background-image:url(images/rss_top2.png);
+	background-repeat:no-repeat;
+	height:9px;
+}
+
+.downTitle{
+	padding-left:auto;
+	background-image:url(images/rss_middle.png);
+	background-repeat:repeat-y;
+	height:auto;
+}
+
+.downTitle_bottom{
+	background-image:url(images/down_title_bottom2.png);
+	background-repeat:no-repeat;
+	height:9px;
+}
+
+/* RSS down middle */
+.downRss{
+	background-image:url(images/down_middle.png);
+	background-repeat:repeat-y;
+}
+
+/* RSS down bottom */
+.downRss_bottom{
+	background-image:url(images/down_bottom.png);
+	background-repeat:no-repeat;
+	height:9px;
+}
+
+/* RSS box with the rss */
+.rssflux{
+	width:auto;
+	margin-left: auto;
+}
+
+/* RSS img minus-plus */
+.open {
+	float:right;
+}
+
+/* RSS title*/
+.flux_title  a:link{
+	color:#6666FF;
+}
+
+.flux_title a:visited{
+	color:#6633CC;
+}
+
+.flux_title  a:hover{
+	 color:#FF3333;
+}
+
+/* RSS description*/
+.flux_desc{
+	font-size:10px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-style:italic;
+	height:auto;
+	width:auto;
+	text-align:justify;
+}
+
+/* RSS date*/
+.date{
+	font-style:italic;
+	font-size:12px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	padding-left:10px;
+}
+
+/* RSS sub-title*/
+.title{
+	color:#999999;
+	font-size:16px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+.title  a:link{
+	color:#6666FF;
+}
+
+.title  a:visited{
+	 color:#6633CC;
+}
+
+.title  a:hover{
+	 color:#FF3333;
+}
+
+/* RSS sub-description*/
+.desc{
+	padding-left:auto;
+	padding-right: auto;
+	text-align:justify;
+	display:none;
+	font-size:14px;
+}
+
+/* RSS space between 2 sub-title & sub-description*/
+.space{
+	height:10px;
+	width:auto;
+	margin-left: auto;
+	border-top: 2px solid #6666FF;
+}
